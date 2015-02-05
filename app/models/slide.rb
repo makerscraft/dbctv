@@ -1,9 +1,7 @@
 class Slide < ActiveRecord::Base
   attr_accessor :file
   before_save :save_image, :set_path
-
-
-
+  validates :description, presence: true
 
   private
 
@@ -12,7 +10,6 @@ class Slide < ActiveRecord::Base
   end
 
   def set_path
-    puts "images" + self.file.original_filename
     self.path = "/images/" + self.file.original_filename
   end
 
