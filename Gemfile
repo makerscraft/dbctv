@@ -29,7 +29,7 @@ gem 'spring',        group: :development
 gem 'haml'
 
 group :development, :test do
-  gem 'haml-rails'
+  gem 'haml-rails', '~> 0.8'
   gem 'better_errors'
   gem 'binding_of_caller'
 end

@@ -1,0 +1,13 @@
+%p#notice= notice
+%p
+  %strong Description:
+  = @slide.description
+%p
+  %strong Path:
+  %img{:src => "#{@slide.path}"}/
+%p
+  %strong End date:
+  = @slide.end_date
+= link_to 'Edit', edit_slide_path(@slide)
+|
+= link_to 'Back', slides_path
