@@ -25,6 +25,7 @@ class SlidesController < ApplicationController
   # POST /slides.json
   def create
     @slide = Slide.new(slide_params)
+    @slide.file = params[:slide][:file]
 
     respond_to do |format|
       if @slide.save
