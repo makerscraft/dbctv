@@ -12,7 +12,6 @@ class Slide < ActiveRecord::Base
   end
 
   def set_path
-    puts "8" * 88
     puts "images" + self.file.original_filename
     self.path = "/images/" + self.file.original_filename
   end
