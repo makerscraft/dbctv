@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @slide.description %>
+</p>
+
+<p>
+  <strong>Path:</strong>
+  <img src="<%= @slide.path %>">
+</p>
+
+<p>
+  <strong>End date:</strong>
+  <%= @slide.end_date %>
+</p>
+
+<%= link_to 'Edit', edit_slide_path(@slide) %> |
+<%= link_to 'Back', slides_path %>

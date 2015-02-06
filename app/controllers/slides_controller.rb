@@ -9,6 +9,11 @@ class SlidesController < ApplicationController
 
   # GET /slides/1
   # GET /slides/1.json
+
+  def slideshow
+    @slides = Slide.all
+  end
+
   def show
   end
 
