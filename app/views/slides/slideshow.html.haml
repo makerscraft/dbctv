@@ -1,6 +1,4 @@
-#slideshow-container
-  %figure#slideshow
-    %img{:alt => "", :src => "dada-voltaire-tinkerbot.jpg"}
-      %img{:alt => "", :src => "happy-bot-tinkerbot.jpg"}
-        %img{:alt => "", :src => "sgt-swift-tinkerbot.jpg"}
-          %img{:alt => "", :src => "xf-3-fandicaff-tinkerbot.jpg"}
+- @slides.each do |slide|
+  .fullscreen.background{"data-img-height" => "1064", "data-img-width" => "1600", :style => "background: url(#{slide.path});", id: slide.id}
+    .content-a
+      = "DBC Test Slide ##{slide.id}"
