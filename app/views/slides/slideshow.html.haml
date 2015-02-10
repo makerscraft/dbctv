@@ -1,4 +1,23 @@
-- @slides.each do |slide|
-  .fullscreen.background{"data-img-height" => "1064", "data-img-width" => "1600", :style => "background: url(#{slide.path});", id: slide.id}
-    .content-a
-      = "DBC Test Slide ##{slide.id}"
+
+%ul.cb-slideshow
+  - @slides.each do |slide|
+    - transition_time = 6
+    - slide_transition_time = slide.id * transition_time - transition_time
+    - total_slide_time = transition_time * @slides.length
+    %li
+      %span{ :style => " -webkit-animation-delay: #{slide_transition_time}s; -moz-animation-delay: #{slide_transition_time}s; -o-animation-delay: #{slide_transition_time}s; -ms-animation-delay: #{slide_transition_time}s; animation-delay: #{slide_transition_time}s; " }
+        = image_tag slide.path
+      %div{ :style => " -webkit-animation-delay: #{slide_transition_time}s; -moz-animation-delay: #{slide_transition_time}s; -o-animation-delay: #{slide_transition_time}s; -ms-animation-delay: #{slide_transition_time}s; animation-delay: #{slide_transition_time}s; " }
+        %h3
+          - if slide.description
+            = slide.description
+
+.container
+  %header
+    %h1
+      Dev Bootcamp
+
+
+
+  / include Minimit Anima http://github.com/minimit/minimit-anima
+%script{:src => "http://www.minimit.com/archive/minimit-anima.min.js"}
