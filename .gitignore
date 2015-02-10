@@ -1,3 +1,4 @@
-public/images
+*.jpg
+*.png
 *.log
 tmp/
