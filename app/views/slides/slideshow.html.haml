@@ -8,12 +8,9 @@
         = image_tag slide.path
       %div{ :style => " -webkit-animation: titleAnimation #{total_slide_time}s linear infinite 0s; -moz-animation: titleAnimation #{total_slide_time}s linear infinite 0s; -o-animation: titleAnimation #{total_slide_time}s linear infinite 0s; -ms-animation: titleAnimation #{total_slide_time}s linear infinite 0s; animation: titleAnimation #{total_slide_time}s linear infinite 0s; z-index: 1000; position: absolute; bottom: 30px; left: 0px; width: 100%; text-align: center; opacity: 0; -webkit-animation-delay: #{slide_transition_time}s; -moz-animation-delay: #{slide_transition_time}s; -o-animation-delay: #{slide_transition_time}s; -ms-animation-delay: #{slide_transition_time}s; animation-delay: #{slide_transition_time}s;" }
         %h3
-          - if slide.description
-            = slide.description
-.container
-  %header
-    %h1
-      =link_to "Dev Bootcamp", slides_path
+          - if slide.caption
+            = slide.caption
+
 
 
 

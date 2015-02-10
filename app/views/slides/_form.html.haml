@@ -8,9 +8,13 @@
         - @slide.errors.full_messages.each do |message|
           %li= message
   .field
-    = f.label :description
+    = f.label :title
     %br/
-    = f.text_field :description
+    = f.text_field :title
+  .field
+    = f.label :caption
+    %br/
+    = f.text_field :caption
   .field
     = f.label :end_date
     %br/

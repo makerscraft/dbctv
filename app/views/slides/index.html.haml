@@ -1,17 +1,16 @@
 %link{:rel => "stylesheet", :src => "//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"}/
 
 .container
-  .jumbotron
-    =link_to "Hello", class: "btn btn-primary btn-large"
   .row
     - @slides.each do |slide|
-      = slide.description
-      = slide.path
-      = slide.end_date
-      = image_tag slide.path
       = link_to 'Show', slide
       = link_to 'Edit', edit_slide_path(slide)
       = link_to 'Destroy', slide, method: :delete, data: { confirm: 'Are you sure?' }
+      = slide.title
+      = slide.caption
+      = slide.path
+      = slide.end_date
+      = image_tag slide.path
       %br/
       %br/
 

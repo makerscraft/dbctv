@@ -17,7 +17,8 @@ ActiveRecord::Schema.define(version: 20150205052149) do
   enable_extension "plpgsql"
 
   create_table "slides", force: true do |t|
-    t.string   "description"
+    t.string   "title"
+    t.string   "caption"
     t.string   "path"
     t.datetime "end_date"
     t.datetime "created_at"

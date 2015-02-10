@@ -11,7 +11,7 @@ class SlidesController < ApplicationController
   # GET /slides/1.json
 
   def slideshow
-    @transition_time = 15
+    @transition_time = 30
     @slides = Slide.all
   end
 
@@ -76,6 +76,6 @@ class SlidesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def slide_params
-      params.require(:slide).permit(:description, :path, :end_date)
+      params.require(:slide).permit(:caption, :path, :end_date, :title)
     end
 end
