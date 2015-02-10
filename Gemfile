@@ -28,6 +28,8 @@ gem 'spring',        group: :development
 
 gem 'haml'
 
+gem 'rails_12factor'
+
 group :development, :test do
   gem 'haml-rails', '~> 0.8'
   gem 'better_errors'
