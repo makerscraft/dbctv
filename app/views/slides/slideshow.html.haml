@@ -1,23 +1,21 @@
 
 %ul.cb-slideshow
   - @slides.each do |slide|
-    - transition_time = 6
-    - slide_transition_time = slide.id * transition_time - transition_time
-    - total_slide_time = transition_time * @slides.length
+    - slide_transition_time = (@slides.index(slide)+1) * @transition_time - @transition_time
+    - total_slide_time = @transition_time * @slides.length
     %li
-      %span{ :style => " -webkit-animation-delay: #{slide_transition_time}s; -moz-animation-delay: #{slide_transition_time}s; -o-animation-delay: #{slide_transition_time}s; -ms-animation-delay: #{slide_transition_time}s; animation-delay: #{slide_transition_time}s; " }
+      %span{ :style => "-webkit-animation: imageAnimation #{total_slide_time}s linear infinite 0s; -moz-animation: imageAnimation #{total_slide_time}s linear infinite 0s; -o-animation: imageAnimation #{total_slide_time}s linear infinite 0s; -ms-animation: imageAnimation #{total_slide_time}s linear infinite 0s; animation: imageAnimation #{total_slide_time}s linear infinite 0s; width: 100%; height: 100%; position: absolute; top: 0px; left: 0px; background-size: cover; background-position: 50% 50%; background-repeat: none; opacity: 0; z-index: 0; -webkit-animation-delay: #{slide_transition_time}s; -moz-animation-delay: #{slide_transition_time}s; -o-animation-delay: #{slide_transition_time}s; -ms-animation-delay: #{slide_transition_time}s; animation-delay: #{slide_transition_time}s; -webkit-backface-visibility: hidden; " }
         = image_tag slide.path
-      %div{ :style => " -webkit-animation-delay: #{slide_transition_time}s; -moz-animation-delay: #{slide_transition_time}s; -o-animation-delay: #{slide_transition_time}s; -ms-animation-delay: #{slide_transition_time}s; animation-delay: #{slide_transition_time}s; " }
+      %div{ :style => " -webkit-animation: titleAnimation #{total_slide_time}s linear infinite 0s; -moz-animation: titleAnimation #{total_slide_time}s linear infinite 0s; -o-animation: titleAnimation #{total_slide_time}s linear infinite 0s; -ms-animation: titleAnimation #{total_slide_time}s linear infinite 0s; animation: titleAnimation #{total_slide_time}s linear infinite 0s; z-index: 1000; position: absolute; bottom: 30px; left: 0px; width: 100%; text-align: center; opacity: 0; -webkit-animation-delay: #{slide_transition_time}s; -moz-animation-delay: #{slide_transition_time}s; -o-animation-delay: #{slide_transition_time}s; -ms-animation-delay: #{slide_transition_time}s; animation-delay: #{slide_transition_time}s;" }
         %h3
           - if slide.description
             = slide.description
-
 .container
   %header
     %h1
-      Dev Bootcamp
+      =link_to "Dev Bootcamp", slides_path
 
 
 
-  / include Minimit Anima http://github.com/minimit/minimit-anima
+/ include Minimit Anima http://github.com/minimit/minimit-anima
 %script{:src => "http://www.minimit.com/archive/minimit-anima.min.js"}

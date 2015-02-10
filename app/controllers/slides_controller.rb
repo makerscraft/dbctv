@@ -11,6 +11,7 @@ class SlidesController < ApplicationController
   # GET /slides/1.json
 
   def slideshow
+    @transition_time = 15
     @slides = Slide.all
   end
 
