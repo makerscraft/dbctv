@@ -1,7 +1,7 @@
 class Slide < ActiveRecord::Base
   attr_accessor :file
   before_save :save_image, :set_path
-  validates :description, presence: true
+  # validates :description, presence: true
 
   private
 
