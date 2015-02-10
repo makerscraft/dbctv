@@ -1,7 +1,6 @@
-%link{:rel => "stylesheet", :src => "//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"}/
-
 .container
   .row
+    =link_to "Home", root_path, class: "btn btn-large btn-primary"
     - @slides.each do |slide|
       = link_to 'Show', slide
       = link_to 'Edit', edit_slide_path(slide)
@@ -10,7 +9,7 @@
       = slide.caption
       = slide.path
       = slide.end_date
-      = image_tag slide.path
+      = image_tag slide.path, class: "img-responsive"
       %br/
       %br/
 
