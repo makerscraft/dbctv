@@ -26,18 +26,6 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
 
-gem 'haml'
-
-gem 'rails_12factor'
-
-gem 'bootstrap-sass', '~> 3.3.3'
-gem 'sass-rails', '>= 3.2'
-
-group :development, :test do
-  gem 'haml-rails', '~> 0.8'
-  gem 'better_errors'
-  gem 'binding_of_caller'
-end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -49,3 +37,48 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+
+gem 'haml'
+
+gem 'bootstrap-sass', '~> 3.3.3'
+gem 'sass-rails', '>= 3.2'
+
+gem 'font-awesome-rails'
+
+
+group :development, :test do
+end
+
+group :production  do
+  gem 'rails_12factor'
+end
+
+group :development, :test do
+  # gem 'debugger'
+  gem 'haml-rails', '~> 0.8'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'capistrano-rails'
+  gem 'pry'
+  gem 'rspec-rails', '=2.14'
+  gem 'factory_girl_rails'
+  gem 'faker'
+  gem 'launchy'
+
+  gem 'guard-rspec'
+  gem 'guard-livereload'
+  gem 'guard-spork'
+  gem 'ruby_gntp'
+  gem 'childprocess'
+  gem 'spork-rails', :github => 'sporkrb/spork-rails'
+end
+
+group :test do
+  gem 'capybara'
+  gem 'selenium-webdriver'
+  gem 'database_cleaner'
+  gem 'shoulda-matchers'
+  gem 'cucumber', '1.2.5' # Spork not supported as of Cucumber 1.3.0, need to use 1.2.5
+  gem 'cucumber-rails', :require => false
+end
