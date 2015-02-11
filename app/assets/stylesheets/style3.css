@@ -23,6 +23,35 @@
     color: rgba(255,255,255,0.8);
 }
 
+.cb-slideshow li span {
+	width: 100%;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	background-size: contain;
+	background-position: 50% 50%;
+	background-repeat: none;
+	opacity: 0;
+	z-index: 0;
+	-webkit-backface-visibility: hidden;
+
+}
+
+.cb-slideshow li div {
+	z-index: 1000;
+	position: absolute;
+	bottom: 30px;
+	left: 0px;
+	text-align: center;
+	opacity: 0;
+}
+
+
+
+
+
+
+
 @-webkit-keyframes imageAnimation {
 	0% {
 	    opacity: 0;

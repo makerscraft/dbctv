@@ -1,18 +1,19 @@
+.container-fluid
+  %ul.cb-slideshow
+    - @slides.each do |slide|
+      .row
+        - slide_transition_time = (@slides.index(slide)+1) * @transition_time - @transition_time
+        - total_slide_time = @transition_time * @slides.length
+        %li
+          %span{ :style => "-webkit-animation: imageAnimation #{total_slide_time}s linear infinite 0s; -moz-animation: imageAnimation #{total_slide_time}s linear infinite 0s; -o-animation: imageAnimation #{total_slide_time}s linear infinite 0s; -ms-animation: imageAnimation #{total_slide_time}s linear infinite 0s; animation: imageAnimation #{total_slide_time}s linear infinite 0s; -webkit-animation-delay: #{slide_transition_time}s; -moz-animation-delay: #{slide_transition_time}s; -o-animation-delay: #{slide_transition_time}s; -ms-animation-delay: #{slide_transition_time}s; animation-delay: #{slide_transition_time}s; " }
+            = image_tag slide.path, class: "img-responsive fullscreen_slide"
+          %div{ :style => "-webkit-animation: titleAnimation #{total_slide_time}s linear infinite 0s; -moz-animation: titleAnimation #{total_slide_time}s linear infinite 0s; -o-animation: titleAnimation #{total_slide_time}s linear infinite 0s; -ms-animation: titleAnimation #{total_slide_time}s linear infinite 0s; animation: titleAnimation #{total_slide_time}s linear infinite 0s; -webkit-animation-delay: #{slide_transition_time}s; -moz-animation-delay: #{slide_transition_time}s; -o-animation-delay: #{slide_transition_time}s; -ms-animation-delay: #{slide_transition_time}s; animation-delay: #{slide_transition_time}s;" }
+            %h3
+              - if slide.caption
+                = slide.caption
 
-%ul.cb-slideshow
-  - @slides.each do |slide|
-    - slide_transition_time = (@slides.index(slide)+1) * @transition_time - @transition_time
-    - total_slide_time = @transition_time * @slides.length
-    %li
-      %span{ :style => "-webkit-animation: imageAnimation #{total_slide_time}s linear infinite 0s; -moz-animation: imageAnimation #{total_slide_time}s linear infinite 0s; -o-animation: imageAnimation #{total_slide_time}s linear infinite 0s; -ms-animation: imageAnimation #{total_slide_time}s linear infinite 0s; animation: imageAnimation #{total_slide_time}s linear infinite 0s; position: absolute; top: 0px; left: 0px; background-size: contain; background-position: 50% 50%; background-repeat: none; opacity: 0; z-index: 0; -webkit-animation-delay: #{slide_transition_time}s; -moz-animation-delay: #{slide_transition_time}s; -o-animation-delay: #{slide_transition_time}s; -ms-animation-delay: #{slide_transition_time}s; animation-delay: #{slide_transition_time}s; -webkit-backface-visibility: hidden; " }
-        = image_tag slide.path, class: "img-responsive full"
-      %div{ :style => " -webkit-animation: titleAnimation #{total_slide_time}s linear infinite 0s; -moz-animation: titleAnimation #{total_slide_time}s linear infinite 0s; -o-animation: titleAnimation #{total_slide_time}s linear infinite 0s; -ms-animation: titleAnimation #{total_slide_time}s linear infinite 0s; animation: titleAnimation #{total_slide_time}s linear infinite 0s; z-index: 1000; position: absolute; bottom: 30px; left: 0px; text-align: center; opacity: 0; -webkit-animation-delay: #{slide_transition_time}s; -moz-animation-delay: #{slide_transition_time}s; -o-animation-delay: #{slide_transition_time}s; -ms-animation-delay: #{slide_transition_time}s; animation-delay: #{slide_transition_time}s;" }
-        %h3
-          - if slide.caption
-            = slide.caption
 
 
 
-
-/ include Minimit Anima http://github.com/minimit/minimit-anima
-%script{:src => "http://www.minimit.com/archive/minimit-anima.min.js"}
+  / include Minimit Anima http://github.com/minimit/minimit-anima
+  %script{:src => "http://www.minimit.com/archive/minimit-anima.min.js"}
