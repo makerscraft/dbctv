@@ -1,7 +1,3 @@
-/** {
-  border: 1px solid blue;
-}*/
-
 .cb-slideshow,
 .cb-slideshow:after {
     position: fixed;
@@ -11,6 +7,7 @@
     left: 0px;
     z-index: 0;
 }
+
 .cb-slideshow:after {
     content: '';
 }
@@ -45,10 +42,6 @@
 	text-align: center;
 	opacity: 0;
 }
-
-
-
-
 
 
 
@@ -271,14 +264,4 @@
 	}
 	25% { opacity: 0 }
 	100% { opacity: 0 }
-}
-/* Show at least something when animations not supported */
-.no-cssanimations .cb-slideshow li span{
-	opacity: 1;
-}
-@media screen and (max-width: 1140px) {
-	.cb-slideshow li div h3 { font-size: 100px }
-}
-@media screen and (max-width: 600px) {
-	.cb-slideshow li div h3 { font-size: 50px }
 }
