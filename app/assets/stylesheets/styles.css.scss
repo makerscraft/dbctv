@@ -13,3 +13,14 @@ body {
 ol,ul {
   list-style:none;
 }
+
+header{
+  padding: 10px;
+  position: relative;
+  display: block;
+  text-align: left;
+}
+
+.max-30p {
+  max-height: 30px;
+}

@@ -1,0 +1,10 @@
+=form_tag login_path do
+  .navbar-form.navbar-right
+    .form-group.floatLeft.padSides
+      .black-text.form-control
+        =text_field_tag :email, params[:email], placeholder: "Email"
+    .form-group.floatLeft.padSides
+      .form-control
+        =password_field_tag :password, params[:password], placeholder: "Password"
+    %button.floatLeft.padSides
+      =submit_tag "Sign In", class: "btn btn-large btn-primary"
