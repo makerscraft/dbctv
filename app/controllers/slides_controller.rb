@@ -47,6 +47,11 @@ class SlidesController < ApplicationController
   # PATCH/PUT /slides/1
   # PATCH/PUT /slides/1.json
   def update
+    @slide = Slide.find_by_id(params[:id])
+    if params[:slide][:file]
+      p "in if ********"
+      @slide.file = params[:slide][:file]
+    end
     respond_to do |format|
       if @slide.update(slide_params)
         format.html { redirect_to @slide, notice: 'Slide was successfully updated.' }
@@ -61,6 +66,7 @@ class SlidesController < ApplicationController
   # DELETE /slides/1
   # DELETE /slides/1.json
   def destroy
+    p "$"*80
     @slide.destroy
     respond_to do |format|
       format.html { redirect_to slides_url, notice: 'Slide was successfully destroyed.' }

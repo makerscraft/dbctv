@@ -28,7 +28,9 @@
       %br/
       = link_to 'View', slide, class: "btn btn-large btn-success"
       = link_to 'Edit', edit_slide_path(slide), class: "btn btn-large btn-success"
-      = link_to 'Delete', slide, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-large btn-success"
+      %br/
+      %br/
+      = button_to 'Delete', slide_path(slide), :method => :delete, class: "btn btn-large btn-danger"
       %br/
       %br/
 
