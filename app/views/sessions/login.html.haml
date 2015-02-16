@@ -1,4 +1,4 @@
-.container-fluid
+.container-fluid.well
   .row
     .col-md-12.text-center
       %h2 DBC-TV
@@ -15,12 +15,16 @@
             =link_to "Slides", slides_path, class: "btn btn-large btn-success"
           .form-group
             =link_to "Logout", logout_path, class: "btn btn-large btn-warning"
-        -else
-          %h3 Please login to continue.
+    .col-md-12.col-md-offset-5
+      .form-inline
+        -unless current_user
+          .form-group
+            %h3 Please login to continue.
           =form_tag login_path do
-            .form-group.floatLeft.padSides
+            .form-group
               =text_field_tag :email, params[:email], placeholder: "Email"
-            .form-group.floatLeft.padSides
+            .form-group
               =password_field_tag :password, params[:password], placeholder: "Password"
-            .floatLeft.padSides
-              =submit_tag "Sign In", class: "btn btn-large btn-primary"
+              %br/
+            .form-group
+              =submit_tag "Sign In", class: "btn btn-large btn-info"
