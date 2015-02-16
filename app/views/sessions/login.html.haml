@@ -1,18 +1,20 @@
 .container-fluid
   .row
     .col-md-12.text-center
-      %h2 DBC-TV ADMINITRATION:
+      %h2 DBC-TV
   .row
     .col-md-12.col-md-offset-5
       .form-inline
         -if current_user
           %h3
-            ="Welcome back #{current_user.username}"
+            ="Welcome back #{current_user.username}!"
           %br/
           .form-group
-            =link_to "Logout", logout_path, class: "btn btn-large btn-warning"
+            =link_to "Slideshow", root_path, class: "btn btn-large btn-success"
           .form-group
-            =link_to "Admin", slides_path, class: "btn btn-large btn-success"
+            =link_to "Slides", slides_path, class: "btn btn-large btn-success"
+          .form-group
+            =link_to "Logout", logout_path, class: "btn btn-large btn-warning"
         -else
           %h3 Please login to continue.
           =form_tag login_path do

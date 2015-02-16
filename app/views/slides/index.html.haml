@@ -1,9 +1,8 @@
 .container
   %br/
   .row.well
-    =link_to "Home", root_path, class: "btn btn-large btn-warning"
+    =link_to "Slideshow", root_path, class: "btn btn-large btn-warning"
     =link_to 'New Slide', new_slide_path, class: "btn btn-large btn-warning"
-    =link_to "Admin", slides_path, class: "btn btn-large btn-warning"
     .pull-right
       ="Logged in as: #{current_user.username}"
       =link_to "Logout", logout_path, class: "btn btn-large btn-danger"
@@ -13,14 +12,22 @@
     .row.well
       = image_tag slide.path, class: "img-responsive"
       %br/
-
-      = slide.title
-      = slide.caption
-      = slide.path
-      = slide.end_date
-      = link_to 'Show', slide, class: "btn btn-large btn-success"
+      %p
+        Title:
+        = slide.title
+      %p
+        Captions(optional):
+        = slide.caption
+      %p
+        File Path:
+        = slide.path
+      %p
+        End Date:
+        = slide.end_date
+      %br/
+      = link_to 'View', slide, class: "btn btn-large btn-success"
       = link_to 'Edit', edit_slide_path(slide), class: "btn btn-large btn-success"
-      = link_to 'Destroy', slide, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-large btn-success"
+      = link_to 'Delete', slide, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-large btn-success"
       %br/
       %br/
 
