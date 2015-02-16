@@ -1,19 +1,29 @@
 .container
-  .row
-    =link_to "Home", root_path, class: "btn btn-large btn-primary"
-    - @slides.each do |slide|
-      = link_to 'Show', slide
-      = link_to 'Edit', edit_slide_path(slide)
-      = link_to 'Destroy', slide, method: :delete, data: { confirm: 'Are you sure?' }
+  %br/
+  .row.well
+    =link_to "Home", root_path, class: "btn btn-large btn-warning"
+    =link_to 'New Slide', new_slide_path, class: "btn btn-large btn-warning"
+    =link_to "Admin", slides_path, class: "btn btn-large btn-warning"
+    .pull-right
+      ="Logged in as: #{current_user.username}"
+      =link_to "Logout", logout_path, class: "btn btn-large btn-danger"
+%br/
+.container
+  - @slides.each do |slide|
+    .row.well
+      = image_tag slide.path, class: "img-responsive"
+      %br/
+
       = slide.title
       = slide.caption
       = slide.path
       = slide.end_date
-      = image_tag slide.path, class: "img-responsive"
+      = link_to 'Show', slide, class: "btn btn-large btn-success"
+      = link_to 'Edit', edit_slide_path(slide), class: "btn btn-large btn-success"
+      = link_to 'Destroy', slide, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-large btn-success"
       %br/
       %br/
+
 
   %br/
-  = link_to 'New Slide', new_slide_path
-
 
