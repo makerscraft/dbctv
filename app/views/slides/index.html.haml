@@ -4,8 +4,9 @@
     =link_to "Slideshow", root_path, class: "btn btn-large btn-warning"
     =link_to 'New Slide', new_slide_path, class: "btn btn-large btn-warning"
     .pull-right
-      ="Logged in as: #{current_user.username}"
-      =link_to "Logout", logout_path, class: "btn btn-large btn-danger"
+      -if current_user
+        ="Logged in as: #{current_user.username}"
+        =link_to "Logout", logout_path, class: "btn btn-large btn-danger"
 %br/
 .container
   - @slides.each do |slide|
