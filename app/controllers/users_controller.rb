@@ -14,7 +14,6 @@ class UsersController < ApplicationController
 
   # GET /users/new
   def new
-    p "0" *30
     @user = User.new
   end
 
