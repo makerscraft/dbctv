@@ -1,10 +1,24 @@
-=form_tag login_path do
-  .navbar-form.navbar-right
-    .form-group.floatLeft.padSides
-      .black-text.form-control
-        =text_field_tag :email, params[:email], placeholder: "Email"
-    .form-group.floatLeft.padSides
-      .form-control
-        =password_field_tag :password, params[:password], placeholder: "Password"
-    %button.floatLeft.padSides
-      =submit_tag "Sign In", class: "btn btn-large btn-primary"
+.container-fluid
+  .row
+    .col-md-12.text-center
+      %h2 DBC-TV ADMINITRATION:
+  .row
+    .col-md-12.col-md-offset-5
+      .form-inline
+        -if current_user
+          %h3
+            ="Welcome back #{current_user.username}"
+          %br/
+          .form-group
+            =link_to "Logout", logout_path, class: "btn btn-large btn-warning"
+          .form-group
+            =link_to "Admin", slides_path, class: "btn btn-large btn-success"
+        -else
+          %h3 Please login to continue.
+          =form_tag login_path do
+            .form-group.floatLeft.padSides
+              =text_field_tag :email, params[:email], placeholder: "Email"
+            .form-group.floatLeft.padSides
+              =password_field_tag :password, params[:password], placeholder: "Password"
+            .floatLeft.padSides
+              =submit_tag "Sign In", class: "btn btn-large btn-primary"
