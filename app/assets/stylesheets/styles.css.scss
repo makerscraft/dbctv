@@ -1,0 +1,26 @@
+// * {
+//   border: 1px solid blue;
+// }
+body {
+  max-width: 1920px;
+  max-height: 1080px;
+}
+
+.fullscreen_slide {
+  width: 100%;
+}
+
+ol,ul {
+  list-style:none;
+}
+
+header{
+  padding: 10px;
+  position: relative;
+  display: block;
+  text-align: left;
+}
+
+.max-20p {
+  max-height: 20px;
+}

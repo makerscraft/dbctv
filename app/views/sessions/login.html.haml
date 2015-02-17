@@ -1,0 +1,30 @@
+.container-fluid.well
+  .row
+    .col-md-12.text-center
+      %h2 DBC-TV
+  .row
+    .col-md-12.col-md-offset-5
+      .form-inline
+        -if current_user
+          %h3
+            ="Welcome back #{current_user.username}!"
+          %br/
+          .form-group
+            =link_to "Slideshow", root_path, class: "btn btn-large btn-success"
+          .form-group
+            =link_to "Slides", slides_path, class: "btn btn-large btn-success"
+          .form-group
+            =link_to "Logout", logout_path, class: "btn btn-large btn-warning"
+    .col-md-12.col-md-offset-5
+      .form-inline
+        -unless current_user
+          .form-group
+            %h3 Please login to continue.
+          =form_tag login_path do
+            .form-group
+              =text_field_tag :email, params[:email], placeholder: "Email"
+            .form-group
+              =password_field_tag :password, params[:password], placeholder: "Password"
+              %br/
+            .form-group
+              =submit_tag "Sign In", class: "btn btn-large btn-info"

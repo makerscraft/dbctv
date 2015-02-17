@@ -1,4 +1,21 @@
+.container-fluid
+  %ul.cb-slideshow
+    - @slides.each do |slide|
+      .row
+        - slide_transition_time = (@slides.index(slide)+1) * @transition_time - @transition_time
+        - total_slide_time = @transition_time * @slides.length
+        %li
+          %span{ :style => "-webkit-animation: imageAnimation #{total_slide_time}s linear infinite 0s; -moz-animation: imageAnimation #{total_slide_time}s linear infinite 0s; -o-animation: imageAnimation #{total_slide_time}s linear infinite 0s; -ms-animation: imageAnimation #{total_slide_time}s linear infinite 0s; animation: imageAnimation #{total_slide_time}s linear infinite 0s; -webkit-animation-delay: #{slide_transition_time}s; -moz-animation-delay: #{slide_transition_time}s; -o-animation-delay: #{slide_transition_time}s; -ms-animation-delay: #{slide_transition_time}s; animation-delay: #{slide_transition_time}s; " }
+            = image_tag slide.path, class: "img-responsive fullscreen_slide"
+          %div{ :style => "-webkit-animation: titleAnimation #{total_slide_time}s linear infinite 0s; -moz-animation: titleAnimation #{total_slide_time}s linear infinite 0s; -o-animation: titleAnimation #{total_slide_time}s linear infinite 0s; -ms-animation: titleAnimation #{total_slide_time}s linear infinite 0s; animation: titleAnimation #{total_slide_time}s linear infinite 0s; -webkit-animation-delay: #{slide_transition_time}s; -moz-animation-delay: #{slide_transition_time}s; -o-animation-delay: #{slide_transition_time}s; -ms-animation-delay: #{slide_transition_time}s; animation-delay: #{slide_transition_time}s;" }
+            %h3
+              - if slide.caption
+                = slide.caption
 
-.css_slideshow
-  -@slides.each do |this_slide|
-    %img{src: this_slide.path}
+
+
+
+
+:javascript
+  setInterval(function() { window.location.reload(); }, 10*60000); //NOTE: period is passed in milliseconds
+
