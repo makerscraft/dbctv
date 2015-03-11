@@ -1,6 +1,6 @@
 class SlidesController < ApplicationController
   before_action :set_slide, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, :except => [:slideshow]
+  # before_action :authenticate_user!, :except => [:slideshow]
   # GET /slides
   # GET /slides.json
   def index
